@@ -1,34 +1,35 @@
-from math import sqrt
+"""
+Module de détection de nombres premiers.
 
-#### Fonction secondaire
+Ce module fournit une fonction pour vérifier si un nombre est premier.
+"""
 
 
 def isprime(p):
-     d = 2 #on commence par diviser par 2 et on monte petit à petit
-    ispremier = True #on part du principe que le nombre est premier jusqu'à preuve du contraire
-
+    """
+    Vérifie si un nombre est premier.
+    
+    Un nombre premier est un nombre naturel supérieur à 1 qui n'a pas de 
+    diviseurs positifs autres que 1 et lui-même.
+    
+    Args:
+        p (int): Le nombre à vérifier pour la primalité
+        
+    Returns:
+        bool: True si le nombre est premier, False sinon
+        
+    Exemples:
+        >>> isprime(7)
+        True
+        >>> isprime(10)
+        False
+        >>> isprime(1)
+        False
+    """
+    d = 2
+    ispremier = True
     while d < p:
         if p % d == 0:
-            q = p // d #on définit le quotient pour pouvoir l'appeler dans le print
-            ispremier = False #le nombre n'est pas premier
+            ispremier = False
         d += 1
-    return(ispremier)
-
-    pass
-
-#### Fonction principale
-
-
-def main():
-
-    # vos appels à la fonction secondaire ici
-
-    for n in range(100):
-        if isprime(n):
-            print(n, end=", ")
-
-    print()
-
-
-if __name__ == "__main__":
-    main()
+    return ispremier
