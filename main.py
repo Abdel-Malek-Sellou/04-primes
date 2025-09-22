@@ -1,43 +1,33 @@
+
 """
 Module de détection de nombres premiers.
 
 Ce module fournit une fonction pour vérifier si un nombre est premier.
 """
 
-
 def isprime(p):
     """
-    Vérifie si un nombre est premier.
-    
-    Un nombre premier est un nombre naturel supérieur à 1 qui n'a pas de 
-    diviseurs positifs autres que 1 et lui-même.
-    
-    Args:
-        p (int): Le nombre à vérifier pour la primalité
-        
-    Returns:
-        bool: True si le nombre est premier, False sinon
-        
-    Exemples:
-        >>> isprime(7)
-        True
-        >>> isprime(10)
-        False
-        >>> isprime(1)
-        False
+    Vérifie si un nombre est premier (version ultra-optimisée).
     """
-    d = 2
-    ispremier = True
-    while d < p:
+    if p < 2:
+        return False
+    if p == 2:
+        return True
+    if p % 2 == 0:  # Éliminer les nombres pairs (sauf 2)
+        return False
+    # Tester seulement les diviseurs impairs jusqu'à √p
+    d = 3
+    while d * d <= p:
         if p % d == 0:
-            ispremier = False
-        d += 1
-    return ispremier
-    pass
-    
+            return False
+        d += 2  # Sauter les nombres pairs
+    return True
  #### Fonction principale
 
 def main():
+    """
+    Tout simplement la fonction main.
+    """
 
     # vos appels à la fonction secondaire ici
 
